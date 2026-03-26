@@ -31,54 +31,41 @@
 			border-radius: .5rem;
 			padding: 1rem;
 			list-style-type: '+ ';
-
+			background-color: var(--background-color);
 		}
 
-		p {
+		::details-content {
+			background-color: var(--background-color);
 			padding: 1rem;
 			margin: 0;
 			border-radius: 0 .5rem .5rem .5rem;
 		}
 
 		details:open:nth-of-type(1) {
+			--background-color: var(--first-color);
 			summary {
-				background-color: var(--first-color);
 				border: none;
 				border-radius: .5rem .5rem 0 0;
 				list-style-type: 'X ';
-			}
-
-			p {
-				background-color: var(--first-color);
-
 			}
 		}
 
 		details:open:nth-of-type(2) {
+			--background-color: var(--second-color);
 			summary {
-				background-color: var(--second-color);
 				border: none;
 				border-radius: .5rem .5rem 0 0;
 				list-style-type: 'X ';
 
-			}
-
-			p {
-				background-color: var(--second-color);
 			}
 		}
 
 		details:open:nth-of-type(3) {
+			--background-color: var(--third-color);
 			summary {
-				background-color: var(--third-color);
 				border: none;
 				border-radius: .5rem .5rem 0 0;
 				list-style-type: 'X ';
-
-			}
-
-			p {
-				background-color: var(--third-color);
 
 			}
 		}
@@ -89,6 +76,9 @@
 	<h1>Veelgestelde vragen</h1>
 	<details>
 		<summary>Wat is frontend development?</summary>
+		<p> Een frontend developer ontwerpt en bouwt websites in HTML, CSS en JavaScript. Deze frontend talen leer je
+			bij ons, je hebt dus geen voorkennis nodig.
+		</p>
 		<p> Een frontend developer ontwerpt en bouwt websites in HTML, CSS en JavaScript. Deze frontend talen leer je
 			bij ons, je hebt dus geen voorkennis nodig.
 		</p>
