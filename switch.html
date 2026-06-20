@@ -7,18 +7,65 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+				@supports selector(:has(*)){
+			input[type="checkbox"] {
+				opacity: 0;
+				width: 0;
+				height: 0;
+				position: absolute;
+			}
 
-			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
+			label {
+				display: inline-flex;
+				align-items: center;
+				width: 4rem;
+				height: 2rem;
+				background: #bbb;
+				border-radius: 2rem;
+				cursor: pointer;
+				padding: 0.2rem;
+			}
+
+			label > span {
+				width: 1.5rem;
+				height: 1.5rem;
+				background: white;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: .6rem;
+				font-weight: 700;
+				color: transparent;
+				transition: transform .25s, color .25s;
+			}
+
+			label:has(input:checked) {
+				background: #5AE0B6;
+				
+			}
+
+			label:has(input:checked) > span {
+				transform: translateX(calc(4rem - 1.5rem));
+				color: #1a1a1a;
+			}
+
+			label:has(input:focus-visible) {
+				outline: 2px solid #9A69F2;
+				outline-offset: 2px;
+			}
+		}
 		</style>
 	</head>
 	<body>
 		<h1>Switch control</h1>
-		
-		<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
-		     Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
+
+		<label> 
+			<input type="checkbox" switch>
+			<span hidden>aan</span>
+			IK BEN EEN SWITCH
+		</label>
 
 		<details open>
 			<summary>Demo video</summary>
