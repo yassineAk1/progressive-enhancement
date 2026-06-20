@@ -1,37 +1,114 @@
 <!doctype html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>Mobiel menu / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Mobiel menu / Progressive Enhancement / FDND</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+    <style>
+      .hamburger,
+      nav button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      nav button {
+        padding: 10px;
+        font-size: 35px;
+        padding: 10px;
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    
+      }
+      nav[popover] {
+        inset: 0 auto 0 0;
+        margin: 0;
+        height: 100%;
+        width: 20vw;
+        border: none;
+        background-color: rgb(42, 165, 114);
+        position: relative;
+        padding-top: 70px;
 
-			/* Hint: kijk eens naar :target
-			   https://developer.mozilla.org/en-US/docs/Web/CSS/:target */
-		</style>
-		<script type="module">
-			/* Schrijf hier eventueel je client-side JavaScript */
+        translate: -100% 0;
+        transition:
+          translate 0.3s ease,
+          display 0.3s allow-discrete,
+          overlay 0.3s allow-discrete;
+      }
 
-			/* Hint: dit component kan volledig met CSS, maar met JS kun je 'm enhancen */
-		</script>
-	</head>
-	<body>
-		<main>
-			<h1>Mobiel menu</h1>
-			
-			<!-- Hint: Wat heb je nodig, als je op een klein scherm naar het menu wilt? -->
+      nav[popover]:popover-open {
+        translate: 0 0;
+      }
 
-			<details open>
-				<summary>Demo video</summary>
-				<video src="assets/menu.mp4" width="773" height="863" controls muted autoplay loop>
-					<a href="assets/menu.mp4">assets/menu.mp4</a>
-				</video>
-			</details>
+      @starting-style {
+        nav[popover]:popover-open {
+          translate: -100% 0;
+        }
+      }
+  
+      nav[popover] a {
+        display: block;
+        color: blueviolet;
+        font-size: 20px;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 20px;
 
-			<!-- Deze tekst kun je gebruiken, zodat de pagina wat langer wordt
+        &:hover {
+        background-color: rgb(0, 134, 139);
+        }
+      }
+
+    
+
+    </style>
+    <script type="module">
+      /* Schrijf hier eventueel je client-side JavaScript */
+
+      /* Hint: dit component kan volledig met CSS, maar met JS kun je 'm enhancen */
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1>Mobiel menu</h1>
+      <button class="hamburger" popovertarget="hamburger">
+        <img src="/assets/pngtree-menu-icon-png-image_18665585.webp" width="50" height="50" />
+      </button>
+
+      <nav id="hamburger" popover>
+        <button type="button" popovertarget="hamburger">✕</button>
+        <a href="index.html">Home</a>
+        <a href="faq.html">Veelgestelde vragen</a>
+        <a href="switch.html">Switch control</a>
+        <a href="#">Mobiel menu</a>
+        <a href="rating.html">Rating</a>
+        <a href="tabs.html">Tabbladen</a>
+        <a href="file.html">File image met upload</a>
+      </nav>
+      <!-- Hint: Wat heb je nodig, als je op een klein scherm naar het menu wilt? -->
+
+      <details>
+        <summary>Demo video</summary>
+        <video
+          src="assets/menu.mp4"
+          width="773"
+          height="863"
+          controls
+          muted
+          autoplay
+          loop
+        >
+          <a href="assets/menu.mp4">assets/menu.mp4</a>
+        </video>
+      </details>
+
+      <!-- Deze tekst kun je gebruiken, zodat de pagina wat langer wordt
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum eget elit eu tincidunt. Donec gravida nulla at justo sollicitudin, hendrerit faucibus diam tincidunt. Pellentesque porta neque quis nunc laoreet congue. Sed porttitor nec tellus nec semper. Cras pharetra dictum risus ut sagittis. Aliquam in iaculis arcu. Nulla sit amet diam sit amet mauris placerat laoreet eu vel turpis. Vivamus ac massa ut diam gravida elementum ut nec nulla. Integer vel felis massa. Quisque facilisis enim ornare ultricies mattis. Fusce porta rhoncus ex. Nunc viverra orci at leo fermentum convallis. Morbi sodales, lectus congue aliquam maximus, metus ipsum placerat turpis, vitae venenatis metus erat vel eros. Vestibulum lobortis accumsan elit nec maximus. Vivamus mollis ullamcorper felis, id aliquet tellus volutpat at.</p>
 			<p>In ante sem, faucibus sit amet nisl ut, efficitur mattis augue. Aenean fringilla lorem id metus ultrices bibendum. Quisque eleifend enim purus, eu bibendum mauris blandit nec. Donec vitae purus sed eros ullamcorper vehicula sit amet eu massa. Vestibulum eget mi vel tellus pharetra convallis quis quis nunc. Maecenas bibendum neque sit amet neque ultrices sollicitudin. Donec viverra arcu nec urna accumsan pharetra. Donec pharetra lacinia elementum.</p>
 			<p>Aliquam auctor diam ut ipsum mattis semper. Praesent auctor quam ut libero aliquet, at gravida nunc aliquam. Duis mollis faucibus nisi at fringilla. Vestibulum at vulputate tortor, eget consequat libero. Praesent non ante libero. Praesent imperdiet neque at lacus mattis, at tincidunt odio ullamcorper. In massa metus, iaculis id vulputate vel, aliquam eu sem. Nulla varius lorem ut justo consectetur consectetur. Nulla viverra, metus in dapibus facilisis, magna sapien lobortis urna, vel mattis sapien velit at nisi. Nullam semper est lorem, id lobortis est blandit gravida. Nulla purus orci, aliquet ac purus at, eleifend ultricies dolor. Vivamus lobortis lectus quis augue molestie congue. Morbi vel libero ac ex sagittis euismod vitae eu dolor. Nunc sed libero enim. Duis at lacus et est fermentum ullamcorper et non eros. Ut semper auctor commodo.</p>
@@ -48,9 +125,9 @@
 			<p>Duis maximus lacinia mattis. Fusce fermentum dignissim sem, ut sollicitudin libero consequat nec. Quisque a vestibulum augue. Sed sit amet purus in tellus congue viverra quis id magna. Maecenas iaculis purus placerat ligula aliquet aliquam. Proin molestie mattis faucibus. Cras a volutpat dui, ut pulvinar tellus.</p>
 			<p>Suspendisse malesuada, nulla eget iaculis fermentum, libero dolor vestibulum urna, ut auctor dolor diam ut dolor. Nullam mollis congue luctus. Fusce nulla dolor, faucibus nec volutpat eget, consequat quis nisl. Cras id diam efficitur, congue lectus ac, vulputate leo. Morbi odio velit, finibus id ornare sit amet, luctus ut eros. Fusce fringilla eu diam quis tempor. Proin pretium purus a fringilla semper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin lorem diam, laoreet at lectus quis, lobortis tempor tortor. Vivamus semper, ex convallis iaculis suscipit, risus augue bibendum sapien, nec volutpat lacus quam finibus arcu. Nunc non consectetur eros, eu viverra metus. Aliquam nisl risus, condimentum et sapien id, rutrum interdum odio. Nulla facilisi. Ut ac egestas quam.</p>
 			-->
-		</main>
+    </main>
 
-		<!-- Dit is het menu
+    <!-- Dit is het menu
 		<nav>
 			<ul>
 				<li><a href="index.html">Home</a></li>
@@ -66,11 +143,10 @@
 		</nav>
 		-->
 
-		<!-- Dit is eventueel het 'Sluiten' icoon
+    <!-- Dit is eventueel het 'Sluiten' icoon
 		<svg viewBox="0 0 32 32" width="32" height="32">
 			<title>Sluiten</title>
 			<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
 		</svg>
-		-->
-	</body>
+		--></body>
 </html>
