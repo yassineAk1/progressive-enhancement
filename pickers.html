@@ -7,12 +7,33 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+			.balk {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 3rem;
+			}
 
-			/* Hint: Kijk eens naar field-sizing
-			   https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing */
+			.balk-kleur {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
+
+			.balk-naam {
+				position: relative;
+				text-align: center;
+				padding: .75rem;
+				border-radius: 0.75em;
+			}
+
+			.balk-naam {
+				field-sizing: content;
+			}
 		</style>
 	</head>
 
@@ -20,29 +41,33 @@
 		<h1>Favorieten picker</h1>
 
 		<form>
+			<div class="balk">
+	
+				<input class="balk-kleur" type="color" list="kleuren" value="#A675F5">
 
-			<!-- Hint: hoe kun je aan een invoerelement een lijst meegeven? -->
 
-			<!-- Een lijstje met docenten
-			Charley Muhren
-			Cyd Stumpel
-			Dion Pieters
-			Dorien Drees
-			Joost Faber
-			Justus Sturkenboom
-			Koop Reynders
-			Krijn Hoetmer
-			Sanne 't Hooft
-			Suus ten Voorde
-			-->
+				<input class="balk-naam" list="docenten">
+			</div>
 
-			<!-- De kleurcodes van FDND:
-			#A675F5
-			#050542
-			#66E5BF
-			#FFFC86
-			-->
+			<datalist id="docenten">
+				<option value="Charley Muhren">
+				<option value="Cyd Stumpel">
+				<option value="Dion Pieters">
+				<option value="Dorien Drees">
+				<option value="Joost Faber">
+				<option value="Justus Sturkenboom">
+				<option value="Koop Reynders">
+				<option value="Krijn Hoetmer">
+				<option value="Sanne 't Hooft">
+				<option value="Suus ten Voorde">
+			</datalist>
 
+			<datalist id="kleuren">
+				<option value="#A675F5">
+				<option value="#050542">
+				<option value="#66E5BF">
+				<option value="#FFFC86">
+			</datalist>
 		</form>
 
 		<details open>
