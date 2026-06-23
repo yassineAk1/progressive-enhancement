@@ -12,8 +12,9 @@
 				position: relative;
 				display: flex;
 				justify-content: center;
-				align-items: center;
 				padding: 3rem;
+				border-radius: 1rem;
+				overflow: hidden;
 			}
 
 			.balk-kleur {
@@ -21,7 +22,10 @@
 				inset: 0;
 				width: 100%;
 				height: 100%;
+				background-color: inherit;
 				border: none;
+				background-color: transparent;
+				padding: 0;
 			}
 
 			.balk-naam {
@@ -29,18 +33,16 @@
 				text-align: center;
 				padding: .75rem;
 				border-radius: 0.75em;
-			}
-
-			.balk-naam {
 				field-sizing: content;
 			}
+
 		</style>
 	</head>
 
 	<body>
 		<h1>Favorieten picker</h1>
 
-		<form>
+	
 			<div class="balk">
 	
 				<input class="balk-kleur" type="color" list="kleuren" value="#A675F5">
@@ -68,7 +70,7 @@
 				<option value="#66E5BF">
 				<option value="#FFFC86">
 			</datalist>
-		</form>
+
 
 		<details open>
 			<summary>Demo video</summary>
